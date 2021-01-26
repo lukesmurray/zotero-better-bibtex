@@ -52,6 +52,13 @@ const Mode = { // tslint:disable-line:variable-name
     if (Translator.preferences.quickCopyPandocBrackets) keys = `[${keys}]`
     Zotero.write(keys)
   },
+  
+  roamCiteKey(items) {
+    let keys = items.map(item => `[[@${item.citationKey}]]`)
+    keys = keys.join(' ')
+    if (Translator.preferences.quickCopyPandocBrackets) keys = `[${keys}]`
+    Zotero.write(keys)
+  },
 
   orgRef(items) {
     if (!items.length) return  ''
